@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Satisfy';
+  src: url('../Fonts/Satisfy-Regular.ttf');
+}
+
+$primary-color: rgb(9 12 16);
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  display: inline-block;
+  padding: 1rem;
+  background-color: $primary-color;
+  color: white;
+  font-family: 'Satisfy';
+  font-size: 1.25rem;
+}
+
+button {
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}

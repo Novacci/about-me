@@ -19,10 +19,16 @@ $primary-color: rgb(9 12 16);
   font-size: 1.25rem;
 }
 
-button {
+.header-button {
   background: transparent;
-  color: white;
-  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
   border: none;
   cursor: pointer;
 }
+// .circle {
+//   border-radius: 50%;
+//   width: 2.25rem;
+//   padding: 0.5rem;
+//   height: 2.25rem;
+// }

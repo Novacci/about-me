@@ -45,7 +45,9 @@ $dark-container: rgb(13, 17, 23);
   @extend .containter;
   width: 476px;
   height: 244px;
-  font-family: 'Silka';
+  span {
+    font-family: 'Silka';
+  }
 }
 
 .spotify-container {
@@ -70,6 +72,10 @@ $dark-container: rgb(13, 17, 23);
   @extend .containter;
   width: 804px;
   height: 245px;
+
+  span {
+    font-family: 'Silka';
+  }
 }
 .contact-container {
   @extend .containter;
@@ -79,8 +85,16 @@ $dark-container: rgb(13, 17, 23);
 
 .links-container {
   @extend .containter;
+  justify-content: center;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
   height: 244px;
   width: 245px;
+  svg {
+    width: 7.25rem;
+    height: 7.25rem;
+  }
 }
 .resume-container {
   @extend .containter;

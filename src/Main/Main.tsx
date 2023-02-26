@@ -1,18 +1,42 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Main.module.scss';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { DiscordIcon } from '../Icons/DiscordIcon';
 import { FacebookIcon } from '../Icons/FacebookIcon';
 import { LinkedInIcon } from '../Icons/LinkedInIcon';
 import { InstagramIcon } from '../Icons/InstagramIcon';
+import { SpotifyIcon } from '../Icons/SpotifyIcon';
+import { RxArrowTopRight } from 'react-icons/rx';
 
-// const SPOTIFY_TOKEN = process.env.
+const SPOTIFY_TOKEN = process.env.REACT_APP_SPOTIFY_TOKEN;
+
+type TrackData = {
+  name: string;
+  artist: string;
+};
 
 const Main = () => {
-  // const lastSongPlayedData = () => {
-  //   fetch('https://api.spotify.com/v1/me/player/recently-played')
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // };
+  const [track, setTrack] = useState<TrackData>({ name: '', artist: '' });
+
+  useEffect(() => {
+    const lastSongPlayedData = async () => {
+      await fetch('https://api.spotify.com/v1/me/player/recently-played', {
+        headers: {
+          authorization: `Bearer ${SPOTIFY_TOKEN}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) =>
+          setTrack({
+            name: data.items[0].track.name,
+            artist: data.items[0].track.artists[0].name,
+          })
+        );
+    };
+    lastSongPlayedData();
+    console.log(track);
+  }, []);
 
   return (
     <>
@@ -25,18 +49,32 @@ const Main = () => {
           </span>
         </div>
         <div className={styles['spotify-container']}>
-          <div className={styles.title}>Spotify</div>
+          <span>
+            <SpotifyIcon />
+          </span>
+          <div>
+            <span className={styles['spotify-text']}>Offline, Last Played</span>
+            <div className={styles.title}>{track.name}</div>
+            <div className={styles.darkened}>{track.artist}</div>
+          </div>
         </div>
         <div className={styles['map-container']}>Miejsce na Mapke</div>
         <div className={styles['git-container']}>
-          <div className={styles.title}>GitHub</div>
-          <span>
-            <GithubIcon />
-          </span>
-          <span className={styles.darkened}>
-            Click the button above to see my profile and check out my github
-            projects
-          </span>
+          <div className={styles['buttons-grouping']}>
+            <a target="_blank" href="https://github.com/Novacci">
+              <GithubIcon />
+            </a>
+            <a target="_blank" href="https://github.com/Novacci">
+              <RxArrowTopRight />
+            </a>
+          </div>
+          <div>
+            <div className={styles.title}>GitHub</div>
+            <span className={styles.darkened}>
+              Click the button above to see my profile and check out my github
+              projects
+            </span>
+          </div>
         </div>
         <div className={styles['info-container']}>
           <div className={styles.title}>About Me:</div>
@@ -44,7 +82,7 @@ const Main = () => {
             My name is Wojtek and I am a self-taught programmer who loves
             working with JavaScript technologies. Right now I am focused on
             learning everything that is related to Web Development. Now I am
-            working on my projects that helps me improve me skills and get
+            working on my projects that helps me improve my skills and get
             deeper into technologies like Next.js, Redux, Firebase and so on so
             In the future I can become a specialist as a React developer. In my
             free time, I do sports like playing football, practicing yoga, and
@@ -58,27 +96,38 @@ const Main = () => {
             I am open to all inqueirs. Whether you have a question or just want
             to say hi, I will try my best to get back to you
           </span>
+
           <button>Contact me</button>
         </div>
         <div className={styles['links-container']}>
-          <a>
+          <a
+            target="_blank"
+            href="https://discordapp.com/users/247450566408536066"
+          >
             <DiscordIcon />
           </a>
-          <a href="https://www.facebook.com/wojtek.nowakxd">
+          <a target="_blank" href="https://www.facebook.com/wojtek.nowakxd">
             <FacebookIcon />
           </a>
-          <a href="https://www.linkedin.com/in/novacci/">
+          <a target="_blank" href="https://www.linkedin.com/in/novacci/">
             <LinkedInIcon />
           </a>
-          <a href="https://www.instagram.com/novacciq/">
+          <a target="_blank" href="https://www.instagram.com/novacciq/">
             <InstagramIcon />
           </a>
         </div>
+
         <div className={styles['resume-container']}>
-          <div className={styles.title}>Resume</div>
-          <span className={styles.darkened}>
-            By clicking this card you will be redirected to see my full resume.
-          </span>
+          <div className={styles['arrow-button-style']}>
+            <RxArrowTopRight />
+          </div>
+          <div>
+            <div className={styles.title}>Resume</div>
+            <span className={styles.darkened}>
+              By clicking this card you will be redirected to see my full
+              resume.
+            </span>
+          </div>
         </div>
       </div>
     </>

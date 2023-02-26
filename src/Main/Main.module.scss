@@ -24,9 +24,15 @@ $dark-container: rgb(13, 17, 23);
   font-family: 'Silka';
 }
 
+.spotify-text {
+  color: #1ed760;
+  font-family: 'Silka';
+  font-size: 14px;
+}
+
 .flex-position {
   width: 1202px;
-  margin-left: 22.5rem;
+  margin: auto;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -52,8 +58,15 @@ $dark-container: rgb(13, 17, 23);
 
 .spotify-container {
   @extend .containter;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 245px;
   height: 244px;
+  svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 }
 
 .map-container {
@@ -66,38 +79,73 @@ $dark-container: rgb(13, 17, 23);
   @extend .containter;
   width: 245px;
   height: 244px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .buttons-grouping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .info-container {
   @extend .containter;
   width: 804px;
   height: 245px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   span {
     font-family: 'Silka';
   }
 }
 .contact-container {
   @extend .containter;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 244px;
   width: 476px;
 }
 
 .links-container {
   @extend .containter;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   height: 244px;
   width: 245px;
   svg {
-    width: 7.25rem;
-    height: 7.25rem;
+    width: 6.25rem;
+    height: 6.25rem;
+    transition: transform 0.2s;
+  }
+  svg:hover {
+    transform: scale(1.2);
+  }
+  a {
+    width: 100px;
+    height: 100px;
   }
 }
 .resume-container {
   @extend .containter;
   height: 244px;
   width: 245px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.arrow-button-style {
+  display: flex;
+  flex-direction: row-reverse;
 }

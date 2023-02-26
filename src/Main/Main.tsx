@@ -8,6 +8,8 @@ import { LinkedInIcon } from '../Icons/LinkedInIcon';
 import { InstagramIcon } from '../Icons/InstagramIcon';
 import { SpotifyIcon } from '../Icons/SpotifyIcon';
 import { RxArrowTopRight } from 'react-icons/rx';
+import { RiRhythmFill } from 'react-icons/ri';
+import { FiSend } from 'react-icons/fi';
 
 const SPOTIFY_TOKEN = process.env.REACT_APP_SPOTIFY_TOKEN;
 
@@ -49,11 +51,17 @@ const Main = () => {
           </span>
         </div>
         <div className={styles['spotify-container']}>
-          <span>
+          <span className={styles['spotify-main-icon']}>
             <SpotifyIcon />
           </span>
           <div>
-            <span className={styles['spotify-text']}>Offline, Last Played</span>
+            <span className={styles['spotify-text']}>
+              <span className={styles['spotify-music-icon']}>
+                <RiRhythmFill />
+              </span>
+              Offline, Last Played
+            </span>
+
             <div className={styles.title}>{track.name}</div>
             <div className={styles.darkened}>{track.artist}</div>
           </div>
@@ -61,10 +69,19 @@ const Main = () => {
         <div className={styles['map-container']}>Miejsce na Mapke</div>
         <div className={styles['git-container']}>
           <div className={styles['buttons-grouping']}>
-            <a target="_blank" href="https://github.com/Novacci">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/Novacci"
+            >
               <GithubIcon />
             </a>
-            <a target="_blank" href="https://github.com/Novacci">
+            <a
+              className={styles['arrow-button-style']}
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/Novacci"
+            >
               <RxArrowTopRight />
             </a>
           </div>
@@ -94,33 +111,58 @@ const Main = () => {
           <div className={styles.title}>Get in Touch</div>
           <span className={styles.darkened}>
             I am open to all inqueirs. Whether you have a question or just want
-            to say hi, I will try my best to get back to you
+            to say hi, I will try my best to get back to you!
           </span>
 
-          <button>Contact me</button>
+          <a
+            className={styles['contact-button-style']}
+            target="_blank"
+            href="mailto:wojtekn00@gmail.com"
+          >
+            <FiSend />
+            Contact me
+          </a>
         </div>
         <div className={styles['links-container']}>
           <a
+            rel="noreferrer"
             target="_blank"
             href="https://discordapp.com/users/247450566408536066"
           >
             <DiscordIcon />
           </a>
-          <a target="_blank" href="https://www.facebook.com/wojtek.nowakxd">
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.facebook.com/wojtek.nowakxd"
+          >
             <FacebookIcon />
           </a>
-          <a target="_blank" href="https://www.linkedin.com/in/novacci/">
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/novacci/"
+          >
             <LinkedInIcon />
           </a>
-          <a target="_blank" href="https://www.instagram.com/novacciq/">
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.instagram.com/novacciq/"
+          >
             <InstagramIcon />
           </a>
         </div>
 
         <div className={styles['resume-container']}>
-          <div className={styles['arrow-button-style']}>
+          <a
+            className={styles['arrow-button-style']}
+            rel="noreferrer"
+            target="_blank"
+            href={`${process.env.PUBLIC_URL} + '/WojciechNowak.pdf'`}
+          >
             <RxArrowTopRight />
-          </div>
+          </a>
           <div>
             <div className={styles.title}>Resume</div>
             <span className={styles.darkened}>

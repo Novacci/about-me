@@ -7,7 +7,14 @@
   font-family: 'Silka';
   src: url('../Fonts/Silka-Regular.otf');
 }
+@mixin arrow-style() {
+  border: $border-features;
+  padding: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
 
+$spotify-color: #1ed760;
 $font-color: white;
 $font-dark: rgb(138, 148, 158);
 $border-features: 2px solid rgb(75, 78, 80);
@@ -22,12 +29,6 @@ $dark-container: rgb(13, 17, 23);
 .darkened {
   color: $font-dark;
   font-family: 'Silka';
-}
-
-.spotify-text {
-  color: #1ed760;
-  font-family: 'Silka';
-  font-size: 14px;
 }
 
 .flex-position {
@@ -63,9 +64,22 @@ $dark-container: rgb(13, 17, 23);
   justify-content: space-between;
   width: 245px;
   height: 244px;
-  svg {
+
+  .spotify-text {
+    color: $spotify-color;
+    font-family: 'Silka';
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .spotify-main-icon {
     width: 3.5rem;
     height: 3.5rem;
+  }
+  .spotify-music-icon {
+    font-size: 1rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -92,6 +106,10 @@ $dark-container: rgb(13, 17, 23);
     color: inherit;
     text-decoration: none;
   }
+  a:hover::before {
+    content: 'Github.com';
+    box-shadow: 0px 0px 8px rgb(75, 78, 80);
+  }
 }
 
 .info-container {
@@ -112,6 +130,15 @@ $dark-container: rgb(13, 17, 23);
   justify-content: space-between;
   height: 244px;
   width: 476px;
+
+  svg {
+    margin-right: 0.5rem;
+  }
+  a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .links-container {
@@ -143,9 +170,28 @@ $dark-container: rgb(13, 17, 23);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 0.5rem;
+  a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
 }
 .arrow-button-style {
+  @include arrow-style();
+  border-radius: 50%;
+}
+.contact-button-style {
+  border: $border-features;
+  height: 1rem;
+  width: 8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  font-family: 'Silka';
   display: flex;
-  flex-direction: row-reverse;
+  align-items: center;
+  &:hover {
+    box-shadow: 0px 0px 8px rgb(75, 78, 80);
+  }
 }

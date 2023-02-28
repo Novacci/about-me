@@ -106,9 +106,25 @@ $dark-container: rgb(13, 17, 23);
     color: inherit;
     text-decoration: none;
   }
-  a:hover::before {
-    content: 'Github.com';
+  .git-arrow {
+    @extend .arrow-button-style;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: width 0.7s;
+    width: auto;
+  }
+  .git-arrow:hover {
+    width: 7rem;
     box-shadow: 0px 0px 8px rgb(75, 78, 80);
+    border-radius: 1.5rem;
+    display: flex;
+  }
+  .text {
+    margin-right: 0.5rem;
+    font-family: 'Silka';
+    font-size: 0.9rem;
   }
 }
 
@@ -172,16 +188,40 @@ $dark-container: rgb(13, 17, 23);
   justify-content: space-between;
   align-items: flex-end;
   gap: 0.5rem;
+  .text {
+    white-space: nowrap;
+  }
   a {
     cursor: pointer;
     color: inherit;
     text-decoration: none;
   }
+  .resume-arrow {
+    @extend .arrow-button-style;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: width 0.7s;
+    width: auto;
+  }
+  .resume-arrow:hover {
+    width: 7.5rem;
+    box-shadow: 0px 0px 8px rgb(75, 78, 80);
+    border-radius: 1.5rem;
+    display: flex;
+  }
+  .text {
+    margin-right: 0.5rem;
+    font-family: 'Silka';
+    font-size: 0.9rem;
+  }
 }
+
 .arrow-button-style {
   @include arrow-style();
-  border-radius: 50%;
 }
+
 .contact-button-style {
   border: $border-features;
   height: 1rem;

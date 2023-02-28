@@ -77,19 +77,22 @@ const Main = () => {
               <GithubIcon />
             </a>
             <a
-              className={styles['arrow-button-style']}
+              className={styles['git-arrow']}
               rel="noreferrer"
               target="_blank"
               href="https://github.com/Novacci"
             >
-              <RxArrowTopRight />
+              <div>
+                <RxArrowTopRight />
+              </div>
+              <span className={styles.text}>Github.com</span>
             </a>
           </div>
           <div>
             <div className={styles.title}>GitHub</div>
             <span className={styles.darkened}>
               Click the button above to see my profile and check out my github
-              projects
+              projects.
             </span>
           </div>
         </div>
@@ -116,6 +119,7 @@ const Main = () => {
 
           <a
             className={styles['contact-button-style']}
+            rel="noreferrer"
             target="_blank"
             href="mailto:wojtekn00@gmail.com"
           >
@@ -156,12 +160,15 @@ const Main = () => {
 
         <div className={styles['resume-container']}>
           <a
-            className={styles['arrow-button-style']}
+            className={styles['resume-arrow']}
             rel="noreferrer"
             target="_blank"
             href={`${process.env.PUBLIC_URL} + '/WojciechNowak.pdf'`}
           >
-            <RxArrowTopRight />
+            <div>
+              <RxArrowTopRight />
+            </div>
+            <span className={styles.text}>View Resume</span>
           </a>
           <div>
             <div className={styles.title}>Resume</div>

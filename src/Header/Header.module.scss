@@ -1,3 +1,7 @@
+// html {
+//   overflow: hidden;
+// }
+
 @font-face {
   font-family: 'Satisfy';
   src: url('../Fonts/Satisfy-Regular.ttf');
@@ -7,7 +11,14 @@ $primary-color: rgb(9 12 16);
 
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+  height: 90px;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 
 .name {
@@ -20,15 +31,23 @@ $primary-color: rgb(9 12 16);
 }
 
 .header-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(75, 78, 80);
   background: transparent;
   color: rgb(255, 255, 255);
-  font-size: 1rem;
-  border: none;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  svg {
+    display: block;
+    height: 16px;
+    width: 16px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 8px rgb(75, 78, 80);
+  }
 }
-// .circle {
-//   border-radius: 50%;
-//   width: 2.25rem;
-//   padding: 0.5rem;
-//   height: 2.25rem;
-// }

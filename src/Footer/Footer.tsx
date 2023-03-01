@@ -1,5 +1,13 @@
+import styles from './Footer.module.scss';
+
 const Footer = () => {
-  return <>Copyright © 2023 Novacci</>;
+  return (
+    <>
+      <footer className={styles['footer-container']}>
+        <p>Copyright © 2023 Novacci</p>
+      </footer>
+    </>
+  );
 };
 
 export default Footer;

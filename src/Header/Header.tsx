@@ -7,11 +7,11 @@ const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.name}>Wojciech Nowak</div>
-        <div className={styles.circle}>
-          <button className={styles['header-button']}>
+        <button className={styles['header-button']}>
+          <div>
             <MdOutlineLightMode />
-          </button>
-        </div>
+          </div>
+        </button>
       </div>
     </>
   );

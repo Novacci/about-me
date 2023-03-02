@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss';
+
 import { MdOutlineLightMode } from 'react-icons/md';
 import { useState, useContext } from 'react';
 import ThemeContext from '../Store/ThemeContext';
@@ -8,7 +9,8 @@ const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const changeThemeHandler = () => {
-    setTheme((prevTheme) => !theme);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
   };
 
   return (

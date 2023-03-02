@@ -1,8 +1,20 @@
+:root {
+  --font-color: black;
+  --container-color: white;
+  --background-color: #f7f2f2;
+}
+
+[data-theme='dark'] {
+  --font-color: white;
+  --container-color: rgb(13, 17, 23);
+  --background-color: rgb(9, 12, 16);
+}
+
 * {
   box-sizing: border-box;
 }
 
 div {
   margin: 0;
-  background-color: rgb(9 12 16);
+  background-color: var(--background-color);
 }

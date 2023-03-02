@@ -1,3 +1,4 @@
+@use '../App.module';
 @font-face {
   font-family: 'Bolded';
   src: url(../Fonts/Bolded.ttf);
@@ -15,10 +16,9 @@
 }
 
 $spotify-color: #1ed760;
-$font-color: white;
+
 $font-dark: rgb(138, 148, 158);
 $border-features: 2px solid rgb(75, 78, 80);
-$dark-container: rgb(13, 17, 23);
 
 .title {
   font-family: 'Bolded';
@@ -41,9 +41,9 @@ $dark-container: rgb(13, 17, 23);
 }
 
 .containter {
-  color: $font-color;
+  color: var(--font-color);
   border: $border-features;
-  background-color: $dark-container;
+  background-color: var(--container-color);
   border-radius: 2rem;
   padding: 2rem;
 }

@@ -22,8 +22,8 @@ const Main = () => {
   const [track, setTrack] = useState<TrackData>({ name: '', artist: '' });
 
   useEffect(() => {
-    const lastSongPlayedData = async () => {
-      await fetch('https://api.spotify.com/v1/me/player/recently-played', {
+    const lastSongPlayedData = () => {
+      fetch('https://api.spotify.com/v1/me/player/recently-played', {
         headers: {
           authorization: `Bearer ${SPOTIFY_TOKEN}`,
         },
@@ -163,7 +163,7 @@ const Main = () => {
             className={styles['resume-arrow']}
             rel="noreferrer"
             target="_blank"
-            href={`${process.env.PUBLIC_URL} + '/WojciechNowak.pdf'`}
+            href={`${process.env.PUBLIC_URL}WojciechNowak.pdf`}
           >
             <div>
               <RxArrowTopRight />

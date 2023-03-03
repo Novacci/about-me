@@ -2,19 +2,22 @@
   --font-color: black;
   --container-color: white;
   --background-color: #f7f2f2;
+  --border-color: transparent;
+
+  --border-icons-color: #f0f2f8;
+  --background-icons-color: #e7e5e4;
 }
 
 [data-theme='dark'] {
   --font-color: white;
   --container-color: rgb(13, 17, 23);
   --background-color: rgb(9, 12, 16);
+  --border-color: rgb(75, 78, 80);
+  --border-icons-color: rgb(75, 78, 80);
+  --background-icons-color: #0d1117;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-div {
+.div-background-color {
   margin: 0;
   background-color: var(--background-color);
 }

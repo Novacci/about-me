@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div data-theme={theme}>
+        <div className={styles['div-background-color']} data-theme={theme}>
           <Header />
           <Main />
           <Footer />

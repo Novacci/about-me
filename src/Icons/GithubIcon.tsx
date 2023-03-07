@@ -4,9 +4,9 @@ export const GithubIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       width="56"
       height="56"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
-      image-rendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+      imageRendering="optimizeQuality"
       viewBox="0 0 640 640"
     >
       <path

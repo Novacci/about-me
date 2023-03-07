@@ -11,7 +11,10 @@ import { RxArrowTopRight } from 'react-icons/rx';
 import { RiRhythmFill } from 'react-icons/ri';
 import { FiSend } from 'react-icons/fi';
 
-const SPOTIFY_TOKEN = process.env.REACT_APP_SPOTIFY_TOKEN;
+// const SPOTIFY_TOKEN = process.env.REACT_APP_SPOTIFY_TOKEN;
+const SPOTIFY_CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+const REFRESH_TOKEN = process.env.REACT_APP_SPOTIFY_REFRESH_TOKEN;
 
 type TrackData = {
   name: string;
@@ -21,24 +24,37 @@ type TrackData = {
 const Main = () => {
   const [track, setTrack] = useState<TrackData>({ name: '', artist: '' });
 
-  useEffect(() => {
-    const lastSongPlayedData = () => {
-      fetch('https://api.spotify.com/v1/me/player/recently-played', {
-        headers: {
-          authorization: `Bearer ${SPOTIFY_TOKEN}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) =>
-          setTrack({
-            name: data.items[0].track.name,
-            artist: data.items[0].track.artists[0].name,
-          })
-        );
-    };
-    lastSongPlayedData();
-    console.log(track);
-  }, []);
+  const AuthRequest = async () => {
+    const response = await fetch(
+      `https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000&scope=user-read-currently-playing%20user-top-read`,
+      {
+        mode: 'no-cors',
+      }
+    );
+
+    console.log(response);
+  };
+
+  console.log(AuthRequest());
+
+  // useEffect(() => {
+  //   const lastSongPlayedData = () => {
+  //     fetch('https://api.spotify.com/v1/me/player/recently-played', {
+  //       headers: {
+  //         authorization: `Bearer BQBjMJfeVlV9ET6DC0kbDnSF57yGS9IVgpp_YiuO0Um8lB7IaiIr3KHotgUp9XXSUTlwjidNI9BxGw2FdvT_POYxWJJSf2_bI0kg47wzaoKXF2xWpuzWH2TREmTWHe_MMgulwgbb9sxhNaicPR71MF_u79iOmyCuZHiqNOG8V_YQMcIs`,
+  //       },
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) =>
+  //         setTrack({
+  //           name: data.items[0].track.name,
+  //           artist: data.items[0].track.artists[0].name,
+  //         })
+  //       );
+  //   };
+  //   lastSongPlayedData();
+  //   console.log(track);
+  // }, []);
 
   return (
     <>

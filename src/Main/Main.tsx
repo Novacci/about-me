@@ -27,9 +27,23 @@ type TrackData = {
   artist: string;
 };
 
+const initialCurrentTrack = {
+  artist: '',
+  trackName: '',
+  trackUrl: '',
+};
+
+const initialLastTrack = {
+  lastPlayed: '',
+  lastArtist: '',
+  lastLink: '',
+};
+
 const Main = () => {
   const [track, setTrack] = useState<TrackData>({ name: '', artist: '' });
-  const [listening, setIsListening] = useState<boolean>(false);
+  const [isListening, setIsListening] = useState<boolean>(false);
+  const [currentTrack, setCurrentTrack] = useState(initialCurrentTrack);
+  const [lastTrack, setLastTrack] = useState(initialLastTrack);
 
   const getAccessToken = async () => {
     const response = await fetch(`https://accounts.spotify.com/api/token`, {
@@ -47,25 +61,10 @@ const Main = () => {
     return response.json();
   };
 
-  // NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ
-
-  // const getCurrentlyPlaying = async () => {
-  //   const { access_token } = await getAccessToken();
-
-  //   return fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
-  //     headers: {
-  //       Authorization: `Bearer ${access_token}`,
-  //     },
-  //   });
-  // };
-
-  // NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ
-
   const getCurrentlyPlaying = async () => {
     try {
       const { access_token } = await getAccessToken();
-
-      const response = fetch(
+      const response = await fetch(
         `https://api.spotify.com/v1/me/player/currently-playing`,
         {
           headers: {
@@ -73,13 +72,18 @@ const Main = () => {
           },
         }
       );
-      const data = await (await response).json();
-      const artist = data.item.artists[0].name;
-      const trackName = data.item.name;
-      const trackUrl = data.item.external_urls.spotify;
-
-      if (data) {
-        setIsListening(true);
+      const data = await response.json();
+      setIsListening(data.is_playing);
+      if (data.is_playing) {
+        const currentSongData = {
+          artist: data.item.artists[0].name,
+          trackName: data.item.name,
+          trackUrl: data.item.external_urls.spotify,
+        };
+        setCurrentTrack(currentSongData);
+        console.log('aktualna piosenka', currentSongData);
+      } else {
+        setCurrentTrack(initialCurrentTrack);
       }
     } catch (error) {
       console.error(error);
@@ -87,24 +91,39 @@ const Main = () => {
       console.log('Fetching complited');
     }
   };
+  // useEffect(() => {
+  //   getCurrentlyPlaying();
+  // }, []);
 
-  console.log(getCurrentlyPlaying());
+  // |--------------------------------->>>>>
 
-  // NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ
-
-  // const getRecentlyPlayed = async () => {
-  //   const { access_token } = await getAccessToken();
-
-  //   return fetch(`https://api.spotify.com/v1/me/player/recently-played`, {
-  //     headers: {
-  //       Authorization: `Bearer ${access_token}`,
-  //     },
-  //   });
-  // };
-
-  // console.log(getRecentlyPlayed());
-
-  // NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ NIE USUWAĆ
+  const getRecentlyPlayed = async () => {
+    const { access_token } = await getAccessToken();
+    try {
+      const response = await fetch(
+        `https://api.spotify.com/v1/me/player/recently-played`,
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      const lastPlayedData = {
+        lastPlayed: data.items[0].track.name,
+        lastArtist: data.items[0].track.artists[0].name,
+        lastLink: data.items[0].track.external_urls.spotify,
+      };
+      setLastTrack(lastPlayedData);
+      console.log('ostatnia piosenka', lastPlayedData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getCurrentlyPlaying();
+    getRecentlyPlayed();
+  }, []);
 
   return (
     <>
@@ -128,8 +147,18 @@ const Main = () => {
               Offline, Last Played
             </span>
 
-            <div className={styles.title}>{track.name}</div>
-            <div className={styles.darkened}>{track.artist}</div>
+            <div className={styles.title}>
+              {isListening ? (
+                <a href={currentTrack.trackUrl}>{currentTrack.trackName}</a>
+              ) : (
+                <a href={lastTrack.lastLink}>{lastTrack.lastPlayed}</a>
+              )}
+            </div>
+            <div className={styles.darkened}>
+              {isListening
+                ? `${currentTrack.artist}`
+                : `${lastTrack.lastArtist}`}
+            </div>
           </div>
         </div>
         <div className={styles['map-container']}>Miejsce na Mapke</div>

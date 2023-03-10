@@ -23,6 +23,15 @@ $font-dark: rgb(138, 148, 158);
   font-family: 'Bolded';
   font-size: 1.875rem;
   line-height: 2.25rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  a {
+    text-decoration: none;
+    color: var(--font-color);
+  }
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .darkened {
@@ -76,9 +85,56 @@ $font-dark: rgb(138, 148, 158);
     width: 3.5rem;
     height: 3.5rem;
   }
+  .spotify-main-icon-online {
+    @extend .spotify-main-icon;
+    position: relative;
+  }
+  .spotify-main-icon-online::before {
+    content: '';
+    border-radius: 2rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-shadow: 0px 0px 8px $spotify-color;
+    transition: box-shadow 1.2s ease;
+    animation: pulse 2s infinite;
+  }
   .spotify-music-icon {
     font-size: 1rem;
     margin-right: 0.5rem;
+  }
+}
+
+.spotify-online {
+  @extend .spotify-container;
+  border: 2px solid $spotify-color;
+  position: relative;
+}
+
+.spotify-online::before {
+  content: '';
+  border-radius: 2rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: 0px 0px 8px $spotify-color;
+  transition: box-shadow 1.2s ease;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 8px $spotify-color;
+  }
+  50% {
+    box-shadow: 0px 0px 24px $spotify-color;
+  }
+  100% {
+    box-shadow: 0px 0px 8px $spotify-color;
   }
 }
 
@@ -234,6 +290,12 @@ $font-dark: rgb(138, 148, 158);
     box-shadow: 0px 0px 8px var(--border-icons-color);
   }
 }
+
+// .spotify-online {
+//   border: 2px solid $spotify-color;
+//   box-shadow: 0px 0px 8px $spotify-color;
+// }
+
 @media (max-width: 1024px) {
   .flex-position {
     display: flex;

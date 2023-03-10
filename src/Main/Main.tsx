@@ -16,7 +16,6 @@ import { FiSend } from 'react-icons/fi';
 const spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.REACT_APP_REFRESH_TOKEN;
-const encoded_credentials = process.env.REACT_APP_ENCODED_CREDENTIALS;
 
 const basic = Buffer.from(
   `${spotify_client_id}:${spotify_client_secret}`
@@ -91,11 +90,6 @@ const Main = () => {
       console.log('Fetching complited');
     }
   };
-  // useEffect(() => {
-  //   getCurrentlyPlaying();
-  // }, []);
-
-  // |--------------------------------->>>>>
 
   const getRecentlyPlayed = async () => {
     const { access_token } = await getAccessToken();
@@ -121,8 +115,11 @@ const Main = () => {
     }
   };
   useEffect(() => {
-    getCurrentlyPlaying();
-    getRecentlyPlayed();
+    const interval = setInterval(() => {
+      getCurrentlyPlaying();
+      getRecentlyPlayed();
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -135,8 +132,18 @@ const Main = () => {
             projects where I use React, TypeScript, and SCSS
           </span>
         </div>
-        <div className={styles['spotify-container']}>
-          <span className={styles['spotify-main-icon']}>
+        <div
+          className={
+            isListening ? styles['spotify-online'] : styles['spotify-container']
+          }
+        >
+          <span
+            className={
+              isListening
+                ? styles['spotify-main-icon-online']
+                : styles['spotify-main-icon']
+            }
+          >
             <SpotifyIcon />
           </span>
           <div>
@@ -144,14 +151,22 @@ const Main = () => {
               <span className={styles['spotify-music-icon']}>
                 <RiRhythmFill />
               </span>
-              Offline, Last Played
+              {isListening ? `${'Now playing'}` : `${'Offline, Last Played'}`}
             </span>
 
             <div className={styles.title}>
               {isListening ? (
-                <a href={currentTrack.trackUrl}>{currentTrack.trackName}</a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={currentTrack.trackUrl}
+                >
+                  {currentTrack.trackName}
+                </a>
               ) : (
-                <a href={lastTrack.lastLink}>{lastTrack.lastPlayed}</a>
+                <a rel="noreferrer" target="_blank" href={lastTrack.lastLink}>
+                  {lastTrack.lastPlayed}
+                </a>
               )}
             </div>
             <div className={styles.darkened}>

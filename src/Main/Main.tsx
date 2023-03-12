@@ -1,7 +1,7 @@
 import queryString from 'query-string';
 import { Buffer } from 'buffer';
 import MyImage from '../hi.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styles from './Main.module.scss';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { DiscordIcon } from '../Icons/DiscordIcon';
@@ -12,6 +12,7 @@ import { SpotifyIcon } from '../Icons/SpotifyIcon';
 import { RxArrowTopRight } from 'react-icons/rx';
 import { RiRhythmFill } from 'react-icons/ri';
 import { FiSend } from 'react-icons/fi';
+import MapContext from '../Store/MapContext';
 
 const spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -43,6 +44,7 @@ const Main = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
   const [currentTrack, setCurrentTrack] = useState(initialCurrentTrack);
   const [lastTrack, setLastTrack] = useState(initialLastTrack);
+  const MapDisplay = useContext(MapContext);
 
   const getAccessToken = async () => {
     const response = await fetch(`https://accounts.spotify.com/api/token`, {
@@ -181,7 +183,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className={styles['map-container']}>Miejsce na Mapke</div>
+        <div className={styles['map-container']}>{MapDisplay}</div>
         <div className={styles['git-container']}>
           <div className={styles['buttons-grouping']}>
             <a

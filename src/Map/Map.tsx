@@ -1,24 +1,28 @@
 import './Map.scss';
-import { MapContainer, TileLayer } from 'react-leaflet';
-import MapContext from '../Store/MapContext';
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
+import { useContext } from 'react';
+import ThemeContext from '../Store/ThemeContext';
+
+const position: [number, number] = [51.1, 17.0333];
 
 const Map = () => {
-  const position: [number, number] = [51.505, 0.09];
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const lightMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const darkMap = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 
   return (
     <>
-      <MapContext.Consumer>
-        {() => (
-          <MapContainer
-            center={position}
-            zoom={13}
-            scrollWheelZoom={false}
-            attributionControl={false}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          </MapContainer>
-        )}
-      </MapContext.Consumer>
+      <MapContainer
+        center={position}
+        zoom={13}
+        scrollWheelZoom={false}
+        attributionControl={false}
+        zoomControl={false}
+      >
+        <TileLayer url={theme === 'dark' ? darkMap : lightMap} />'
+        <ZoomControl position="bottomright" />
+      </MapContainer>
     </>
   );
 };

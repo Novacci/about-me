@@ -9,8 +9,7 @@ const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const changeThemeHandler = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (

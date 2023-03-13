@@ -1,6 +1,6 @@
 import queryString from 'query-string';
 import { Buffer } from 'buffer';
-import React from 'react';
+import MyImage from '../hi.png';
 import { useState, useEffect } from 'react';
 import styles from './Main.module.scss';
 import { GithubIcon } from '../Icons/GithubIcon';
@@ -126,10 +126,15 @@ const Main = () => {
     <>
       <div className={styles['flex-position']}>
         <div className={styles['about-me-container']}>
+          <img
+            className={styles['my-image-style']}
+            src={MyImage}
+            alt="My Image"
+          ></img>
           <span>
             I am a self-taught programmer who aspires to develop skills which
             are related to Web development. Currently, I am focused on building
-            projects where I use React, TypeScript, and SCSS
+            projects where I use React, TypeScript, and SCSS.
           </span>
         </div>
         <div

@@ -147,8 +147,9 @@ $font-dark: rgb(138, 148, 158);
 
 .map-container {
   @extend .containter;
-  width: 245px;
-  height: 244px;
+  padding: 0%;
+  width: 309px;
+  height: 308px;
 }
 
 .git-container {

@@ -1,6 +1,5 @@
 import queryString from 'query-string';
 import { Buffer } from 'buffer';
-import MyImage from '../hi.png';
 import { useState, useEffect } from 'react';
 import styles from './Main.module.scss';
 import { GithubIcon } from '../Icons/GithubIcon';
@@ -12,6 +11,8 @@ import { SpotifyIcon } from '../Icons/SpotifyIcon';
 import { RxArrowTopRight } from 'react-icons/rx';
 import { RiRhythmFill } from 'react-icons/ri';
 import { FiSend } from 'react-icons/fi';
+import Map from '../Map/Map';
+import MyImage from '../hi.png';
 
 const spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -181,7 +182,9 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className={styles['map-container']}>Miejsce na Mapke</div>
+        <div className={styles['map-container']}>
+          <Map />
+        </div>
         <div className={styles['git-container']}>
           <div className={styles['buttons-grouping']}>
             <a

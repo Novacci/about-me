@@ -8,12 +8,35 @@
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem 2rem 1rem;
-  width: 1440px;
-  height: 90px;
+
   margin: auto;
   p {
     color: rgb(138, 148, 158);
     font-family: 'Silka';
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

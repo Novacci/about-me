@@ -309,6 +309,7 @@ $font-dark: rgb(138, 148, 158);
     display: flex;
     width: 38.5rem;
     flex-direction: row;
+    align-content: center;
   }
   .about-me-container {
     width: 100%;
@@ -354,6 +355,7 @@ $font-dark: rgb(138, 148, 158);
     display: flex;
     width: 26rem;
     flex-direction: column;
+    align-content: center;
   }
   .about-me-container {
     width: 100%;
@@ -393,6 +395,7 @@ $font-dark: rgb(138, 148, 158);
     display: flex;
     width: 18rem;
     flex-direction: column;
+    align-content: center;
   }
   .about-me-container {
     width: 100%;

@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# About-Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+"About me" Page created with React & Typescript & SCSS 
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+### Project setup
 
-### `npm start`
+```
+git clone https://github.com/Novacci/about-me.git
+cd about-me
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description & Screenshots
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+"About-me" Page is a project built with React, Typescript, and SCSS. The project contains pieces of information about myself for instance: links to my socials and GitHub projects, link to my resume and redirection to e-mail so that user can contact me easily. 
+The project has two available themes: dark and light.
+![image](https://user-images.githubusercontent.com/110100579/225118043-5c706f5a-bb6b-4107-a7f7-9dfd2eb9a03a.png)
+![image](https://user-images.githubusercontent.com/110100579/225118218-93092caa-77aa-4537-9631-7d1dc1dcd864.png)
+There are also extra features added like Map and music preview function, where user can see what I am currently listening to on spotify and what was the last track that i listened to if I am offline at the moment where user is on the page.
+![image](https://user-images.githubusercontent.com/110100579/225119659-f5b683df-aa72-498e-a943-d81320a3d0e2.png)
+![image](https://user-images.githubusercontent.com/110100579/225120191-a4959c10-345b-4ed4-aef8-eb2fb010f625.png)
+Website is fully responsive and works on all kind of devices. Example shown on iPhone 12 Pro below:
+![image](https://user-images.githubusercontent.com/110100579/225121374-451d4ee7-19f2-4d30-aab8-2cf63a693ef3.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

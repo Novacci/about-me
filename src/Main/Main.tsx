@@ -45,6 +45,14 @@ const Main = () => {
   const [currentTrack, setCurrentTrack] = useState(initialCurrentTrack);
   const [lastTrack, setLastTrack] = useState(initialLastTrack);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getCurrentlyPlaying();
+      getRecentlyPlayed();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const getAccessToken = async () => {
     const response = await fetch(`https://accounts.spotify.com/api/token`, {
       method: 'POST',
@@ -115,13 +123,6 @@ const Main = () => {
       console.error(error);
     }
   };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getCurrentlyPlaying();
-      getRecentlyPlayed();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>

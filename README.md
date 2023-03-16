@@ -1,5 +1,7 @@
 # About-Me
 
+[Live demo](https://novacci.pl/)
+
 "About me" Page created with React & Typescript & SCSS 
 
 ## Getting started

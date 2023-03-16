@@ -153,7 +153,7 @@ const Main = () => {
           >
             <SpotifyIcon />
           </span>
-          <div>
+          <div style={{ zIndex: '1002' }}>
             <span className={styles['spotify-text']}>
               <span className={styles['spotify-music-icon']}>
                 <RiRhythmFill />

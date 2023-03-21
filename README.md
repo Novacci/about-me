@@ -25,7 +25,8 @@ There are also extra features added like Map and music preview function, where u
 ![image](https://user-images.githubusercontent.com/110100579/225119659-f5b683df-aa72-498e-a943-d81320a3d0e2.png)
 ![image](https://user-images.githubusercontent.com/110100579/225120191-a4959c10-345b-4ed4-aef8-eb2fb010f625.png)
 Website is fully responsive and works on all kind of devices. Example shown on iPhone 12 Pro below:
-![image](https://user-images.githubusercontent.com/110100579/225121374-451d4ee7-19f2-4d30-aab8-2cf63a693ef3.png)
+![image](https://user-images.githubusercontent.com/110100579/226666492-cf96e048-f757-48ba-8b2f-e9c28d9e9c07.png)
+
 
 
 

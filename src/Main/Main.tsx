@@ -31,12 +31,14 @@ const initialCurrentTrack = {
   artist: '',
   trackName: '',
   trackUrl: '',
+  currentImage: '',
 };
 
 const initialLastTrack = {
   lastPlayed: '',
   lastArtist: '',
   lastLink: '',
+  lastImage: '',
 };
 
 const Main = () => {
@@ -87,6 +89,7 @@ const Main = () => {
           artist: data.item.artists[0].name,
           trackName: data.item.name,
           trackUrl: data.item.external_urls.spotify,
+          currentImage: data.item.album.images[0].url,
         };
         setCurrentTrack(currentSongData);
         console.log('aktualna piosenka', currentSongData);
@@ -116,6 +119,7 @@ const Main = () => {
         lastPlayed: data.items[0].track.name,
         lastArtist: data.items[0].track.artists[0].name,
         lastLink: data.items[0].track.external_urls.spotify,
+        lastImage: data.items[0].track.album.images[0].url,
       };
       setLastTrack(lastPlayedData);
       console.log('ostatnia piosenka', lastPlayedData);
@@ -144,15 +148,27 @@ const Main = () => {
             isListening ? styles['spotify-online'] : styles['spotify-container']
           }
         >
-          <span
-            className={
-              isListening
-                ? styles['spotify-main-icon-online']
-                : styles['spotify-main-icon']
-            }
-          >
-            <SpotifyIcon />
-          </span>
+          <div className={styles['icon-image-position']}>
+            <span
+              className={
+                isListening
+                  ? styles['spotify-main-icon-online']
+                  : styles['spotify-main-icon']
+              }
+            >
+              <SpotifyIcon />
+            </span>
+            <div className={styles['song-images']}>
+              {isListening ? (
+                <img
+                  src={currentTrack.currentImage}
+                  alt={'Current Song Image'}
+                />
+              ) : (
+                <img src={lastTrack.lastImage} alt={'Last Song Image'} />
+              )}
+            </div>
+          </div>
           <div style={{ zIndex: '1002' }}>
             <span className={styles['spotify-text']}>
               <span className={styles['spotify-music-icon']}>

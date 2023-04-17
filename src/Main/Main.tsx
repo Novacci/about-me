@@ -13,6 +13,7 @@ import { RiRhythmFill } from 'react-icons/ri';
 import { FiSend } from 'react-icons/fi';
 import Map from '../Map/Map';
 import MyImage from '../hi.png';
+import SpotifySpinner from '../SpotifySpinner/SpotifySpinner';
 
 const spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -46,6 +47,7 @@ const Main = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
   const [currentTrack, setCurrentTrack] = useState(initialCurrentTrack);
   const [lastTrack, setLastTrack] = useState(initialLastTrack);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,6 +75,7 @@ const Main = () => {
 
   const getCurrentlyPlaying = async () => {
     try {
+      setIsLoading(true);
       const { access_token } = await getAccessToken();
       const response = await fetch(
         `https://api.spotify.com/v1/me/player/currently-playing`,
@@ -92,20 +95,23 @@ const Main = () => {
           currentImage: data.item.album.images[0].url,
         };
         setCurrentTrack(currentSongData);
-        console.log('aktualna piosenka', currentSongData);
       } else {
         setCurrentTrack(initialCurrentTrack);
       }
     } catch (error) {
       console.error(error);
     } finally {
-      console.log('Fetching complited');
+      setIsLoading(false);
+      console.log('Fetching current song complited');
     }
   };
+
+  // --------------------------------------------------------------//
 
   const getRecentlyPlayed = async () => {
     const { access_token } = await getAccessToken();
     try {
+      setIsLoading(true);
       const response = await fetch(
         `https://api.spotify.com/v1/me/player/recently-played`,
         {
@@ -122,14 +128,17 @@ const Main = () => {
         lastImage: data.items[0].track.album.images[0].url,
       };
       setLastTrack(lastPlayedData);
-      console.log('ostatnia piosenka', lastPlayedData);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
+      console.log('Fetching last song complited');
     }
   };
 
   return (
     <>
+      {/* <SpotifySpinner /> */}
       <div className={styles['flex-position']}>
         <div className={styles['about-me-container']}>
           <img
@@ -143,62 +152,66 @@ const Main = () => {
             projects where I use React, TypeScript, and SCSS.
           </span>
         </div>
-        <div
-          className={
-            isListening ? styles['spotify-online'] : styles['spotify-container']
-          }
-        >
-          <div className={styles['icon-image-position']}>
-            <span
-              className={
-                isListening
-                  ? styles['spotify-main-icon-online']
-                  : styles['spotify-main-icon']
-              }
-            >
-              <SpotifyIcon />
-            </span>
-            <div className={styles['song-images']}>
-              {isListening ? (
-                <img
-                  src={currentTrack.currentImage}
-                  alt={'Current Song Image'}
-                />
-              ) : (
-                <img src={lastTrack.lastImage} alt={'Last Song Image'} />
-              )}
-            </div>
-          </div>
-          <div style={{ zIndex: '1002' }}>
-            <span className={styles['spotify-text']}>
-              <span className={styles['spotify-music-icon']}>
-                <RiRhythmFill />
+        {
+          <div
+            className={
+              isListening
+                ? styles['spotify-online']
+                : styles['spotify-container']
+            }
+          >
+            <div className={styles['icon-image-position']}>
+              <span
+                className={
+                  isListening
+                    ? styles['spotify-main-icon-online']
+                    : styles['spotify-main-icon']
+                }
+              >
+                <SpotifyIcon />
               </span>
-              {isListening ? `${'Now playing'}` : `${'Offline, Last Played'}`}
-            </span>
-
-            <div className={styles.title}>
-              {isListening ? (
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={currentTrack.trackUrl}
-                >
-                  {currentTrack.trackName}
-                </a>
-              ) : (
-                <a rel="noreferrer" target="_blank" href={lastTrack.lastLink}>
-                  {lastTrack.lastPlayed}
-                </a>
-              )}
+              <div className={styles['song-images']}>
+                {isListening ? (
+                  <img
+                    src={currentTrack.currentImage}
+                    alt={'Current Song Image'}
+                  />
+                ) : (
+                  <img src={lastTrack.lastImage} alt={'Last Song Image'} />
+                )}
+              </div>
             </div>
-            <div className={styles.darkened}>
-              {isListening
-                ? `${currentTrack.artist}`
-                : `${lastTrack.lastArtist}`}
+            <div style={{ zIndex: '1002' }}>
+              <span className={styles['spotify-text']}>
+                <span className={styles['spotify-music-icon']}>
+                  <RiRhythmFill />
+                </span>
+                {isListening ? `${'Now playing'}` : `${'Offline, Last Played'}`}
+              </span>
+
+              <div className={styles.title}>
+                {isListening ? (
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href={currentTrack.trackUrl}
+                  >
+                    {currentTrack.trackName}
+                  </a>
+                ) : (
+                  <a rel="noreferrer" target="_blank" href={lastTrack.lastLink}>
+                    {lastTrack.lastPlayed}
+                  </a>
+                )}
+              </div>
+              <div className={styles.darkened}>
+                {isListening
+                  ? `${currentTrack.artist}`
+                  : `${lastTrack.lastArtist}`}
+              </div>
             </div>
           </div>
-        </div>
+        }
         <div className={styles['map-container']}>
           <Map />
         </div>

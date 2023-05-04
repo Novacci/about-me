@@ -2,6 +2,7 @@ import './Map.scss';
 import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 import { useContext } from 'react';
 import ThemeContext from '../Store/ThemeContext';
+import styles from '../Main/Main.module.scss';
 
 const position: [number, number] = [51.1, 17.0333];
 
@@ -13,16 +14,18 @@ const Map = () => {
 
   return (
     <>
-      <MapContainer
-        center={position}
-        zoom={13}
-        scrollWheelZoom={false}
-        attributionControl={false}
-        zoomControl={false}
-      >
-        <TileLayer url={theme === 'dark' ? darkMap : lightMap} />'
-        <ZoomControl position="bottomright" />
-      </MapContainer>
+      <div className={styles['map-container']}>
+        <MapContainer
+          center={position}
+          zoom={13}
+          scrollWheelZoom={false}
+          attributionControl={false}
+          zoomControl={false}
+        >
+          <TileLayer url={theme === 'dark' ? darkMap : lightMap} />'
+          <ZoomControl position="bottomright" />
+        </MapContainer>
+      </div>
     </>
   );
 };

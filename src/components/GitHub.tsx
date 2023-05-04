@@ -1,4 +1,4 @@
-import styles from './GitHub.module.scss';
+import styles from '../Main/Main.module.scss';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { RxArrowTopRight } from 'react-icons/rx';
 

@@ -3,10 +3,15 @@ import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
 import ThemeContext from './Store/ThemeContext';
-import { useState } from 'react';
+
+import useLocalStorage from 'use-local-storage';
 
 const App = () => {
-  const [theme, setTheme] = useState('dark');
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage(
+    'theme',
+    defaultDark ? 'dark' : 'light'
+  );
 
   return (
     <>

@@ -7,7 +7,7 @@ const ThemeContext = createContext<ThemeDataContext>({
 
 type ThemeDataContext = {
   theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  setTheme: React.Dispatch<React.SetStateAction<string | undefined>>;
 };
 
 export default ThemeContext;

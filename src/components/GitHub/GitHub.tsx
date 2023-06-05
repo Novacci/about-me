@@ -1,6 +1,7 @@
-import styles from '../Main/Main.module.scss';
-import { GithubIcon } from '../Icons/GithubIcon';
+import styles from '../../Main/Main.module.scss';
+import { GithubIcon } from '../../Icons/GithubIcon';
 import { RxArrowTopRight } from 'react-icons/rx';
+import { useTranslation } from 'react-i18next';
 
 const Github = () => {
   return (

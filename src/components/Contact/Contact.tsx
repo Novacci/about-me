@@ -1,4 +1,4 @@
-import styles from '../Main/Main.module.scss';
+import styles from '../../Main/Main.module.scss';
 import { FiSend } from 'react-icons/fi';
 
 const Contact = () => {

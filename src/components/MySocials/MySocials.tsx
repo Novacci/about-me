@@ -1,8 +1,8 @@
-import styles from '../Main/Main.module.scss';
-import { DiscordIcon } from '../Icons/DiscordIcon';
-import { FacebookIcon } from '../Icons/FacebookIcon';
-import { LinkedInIcon } from '../Icons/LinkedInIcon';
-import { InstagramIcon } from '../Icons/InstagramIcon';
+import styles from '../../Main/Main.module.scss';
+import { DiscordIcon } from '../../Icons/DiscordIcon';
+import { FacebookIcon } from '../../Icons/FacebookIcon';
+import { LinkedInIcon } from '../../Icons/LinkedInIcon';
+import { InstagramIcon } from '../../Icons/InstagramIcon';
 
 const MySocials = () => {
   return (

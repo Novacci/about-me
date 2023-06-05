@@ -1,6 +1,6 @@
-import styles from '../Main/Main.module.scss';
+import styles from '../../Main/Main.module.scss';
 import { useState, useEffect } from 'react';
-import { SpotifyIcon } from '../Icons/SpotifyIcon';
+import { SpotifyIcon } from '../../Icons/SpotifyIcon';
 import { RiRhythmFill } from 'react-icons/ri';
 import queryString from 'query-string';
 import { Buffer } from 'buffer';

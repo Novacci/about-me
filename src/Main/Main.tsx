@@ -1,12 +1,12 @@
 import styles from './Main.module.scss';
 import Map from '../Map/Map';
-import Github from '../components/GitHub';
-import AboutMe from '../components/AboutMe';
-import Info from '../components/Info';
-import Contact from '../components/Contact';
-import MySocials from '../components/MySocials';
-import Resume from '../components/Resume';
-import Spotify from '../components/Spotify';
+import Github from '../components/GitHub/GitHub';
+import AboutMe from '../components/AboutMe/AboutMe';
+import Info from '../components/Info/Info';
+import Contact from '../components/Contact/Contact';
+import MySocials from '../components/MySocials/MySocials';
+import Resume from '../components/Resume/Resume';
+import Spotify from '../components/Spotify/Spotify';
 
 const Main = () => {
   return (

@@ -1,4 +1,4 @@
-import styles from '../Main/Main.module.scss';
+import styles from '../../Main/Main.module.scss';
 import { RxArrowTopRight } from 'react-icons/rx';
 
 const Resume = () => {

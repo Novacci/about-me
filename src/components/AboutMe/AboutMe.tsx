@@ -1,5 +1,5 @@
-import styles from '../Main/Main.module.scss';
-import MyImage from '../hi.png';
+import styles from '../../Main/Main.module.scss';
+import MyImage from '../../hi.png';
 
 const AboutMe = () => {
   return (

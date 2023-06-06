@@ -3,7 +3,6 @@ import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
 import ThemeContext from './Store/ThemeContext';
-
 import useLocalStorage from 'use-local-storage';
 
 const App = () => {

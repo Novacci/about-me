@@ -1,0 +1,14 @@
+@use '../../App.module.scss';
+
+.flag-style {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.react-select-container {
+  background-color: var(--background-color);
+  div {
+    background-color: var(--background-color);
+    border: none;
+  }
+}

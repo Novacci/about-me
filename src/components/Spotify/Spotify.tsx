@@ -4,6 +4,7 @@ import { SpotifyIcon } from '../../Icons/SpotifyIcon';
 import { RiRhythmFill } from 'react-icons/ri';
 import queryString from 'query-string';
 import { Buffer } from 'buffer';
+import { useTranslation } from 'react-i18next';
 
 const spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -31,6 +32,7 @@ const Spotify = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
   const [currentTrack, setCurrentTrack] = useState(initialCurrentTrack);
   const [lastTrack, setLastTrack] = useState(initialLastTrack);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -145,7 +147,9 @@ const Spotify = () => {
             <span className={styles['spotify-music-icon']}>
               <RiRhythmFill />
             </span>
-            {isListening ? `${'Now playing'}` : `${'Offline, Last Played'}`}
+            {isListening
+              ? `${t('spotify-now-playing')}`
+              : `${`Offline, ${t('spotify-last-played')}`}`}
           </span>
 
           <div className={styles.title}>

@@ -49,3 +49,8 @@ $primary-color: rgb(9 12 16);
     box-shadow: 0px 0px 8px var(--border-icons-color);
   }
 }
+
+.header-child-position {
+  display: flex;
+  gap: 1.5rem;
+}

@@ -1,9 +1,8 @@
-import React from 'react';
 import styles from './Header.module.scss';
-
 import { MdOutlineLightMode } from 'react-icons/md';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import ThemeContext from '../Store/ThemeContext';
+import SelectLang from '../components/SelectLang/SelectLang';
 
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -16,14 +15,17 @@ const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.name}>Wojciech Nowak</div>
-        <button
-          onClick={changeThemeHandler}
-          className={styles['header-button']}
-        >
-          <div>
-            <MdOutlineLightMode />
-          </div>
-        </button>
+        <div className={styles['header-child-position']}>
+          <SelectLang />
+          <button
+            onClick={changeThemeHandler}
+            className={styles['header-button']}
+          >
+            <div>
+              <MdOutlineLightMode />
+            </div>
+          </button>
+        </div>
       </div>
     </>
   );

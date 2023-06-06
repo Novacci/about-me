@@ -1,7 +1,9 @@
 import styles from '../../Main/Main.module.scss';
 import { RxArrowTopRight } from 'react-icons/rx';
+import { useTranslation } from 'react-i18next';
 
 const Resume = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className={styles['resume-container']}>
@@ -14,13 +16,11 @@ const Resume = () => {
           <div>
             <RxArrowTopRight />
           </div>
-          <span className={styles.text}>View Resume</span>
+          <span className={styles.text}>{t('resume-button')}</span>
         </a>
         <div>
-          <div className={styles.title}>Resume</div>
-          <span className={styles.darkened}>
-            By clicking this card you will be redirected to see my full resume.
-          </span>
+          <div className={styles.title}>{t('resume-title')}</div>
+          <span className={styles.darkened}>{t('resume')}</span>
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import { RxArrowTopRight } from 'react-icons/rx';
 import { useTranslation } from 'react-i18next';
 
 const Github = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className={styles['git-container']}>
@@ -25,10 +26,7 @@ const Github = () => {
         </div>
         <div>
           <div className={styles.title}>GitHub</div>
-          <span className={styles.darkened}>
-            Click the button above to see my profile and check out my github
-            projects.
-          </span>
+          <span className={styles.darkened}>{t('github')}</span>
         </div>
       </div>
     </>

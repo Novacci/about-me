@@ -1,0 +1,14 @@
+{
+  "about": "Jestem programistą-samoukiem, który dąży do rozwijania umiejętności związanych z tworzeniem stron internetowych. Obecnie skupiam się na budowaniu projektów, w których wykorzystuję React, TypeScript i SCSS.",
+  "about-title": "O mnie:",
+  "spotify-last-played": "Ostatnio odtwarzane",
+  "spotify-now-playing": "Teraz odtwarzane",
+  "github": "Kliknij przycisk powyżej, aby zobaczyć mój profil i sprawdzić moje projekty na githubie.",
+  "info": "Nazywam się Wojtek i jestem programistą-samoukiem, który uwielbia pracować z technologiami JavaScript. Obecnie skupiam się na nauce wszystkiego, co jest związane z tworzeniem stron internetowych. Teraz pracuję nad moimi projektami, które pomagają mi doskonalić moje umiejętności i zagłębiać się w technologie takie jak Next.js, Redux, Firebase i tak dalej, dzięki czemu w przyszłości mogę zostać specjalistą jako programista React. W wolnym czasie uprawiam sporty, takie jak gra w piłkę nożną, ćwiczenie jogi i ćwiczenie na siłowni. Moim marzeniem jest odwiedzenie Ameryki Południowej i Półwyspu Iberyjskiego.",
+  "contact": "Jestem otwarty na wszelkie próby kontaktu. Niezależnie od tego, czy masz pytanie, czy po prostu chcesz się przywitać, postaram się jak najlepiej odpowiedzieć!",
+  "contact-title": "Kontakt",
+  "contact-button": "Kontakt ze mną",
+  "resume": "Kliknięcie tej karty spowoduje przekierowanie do mojego pełnego CV.",
+  "resume-title": "Życiorys",
+  "resume-button": "Zobacz CV"
+}

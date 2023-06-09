@@ -7,8 +7,14 @@
 
 .react-select-container {
   background-color: var(--background-color);
+
   div {
     background-color: var(--background-color);
     border: none;
+  }
+}
+@media (max-width: 400px) {
+  .react-select-container {
+    min-width: 5rem;
   }
 }

@@ -54,3 +54,10 @@ $primary-color: rgb(9 12 16);
   display: flex;
   gap: 1.5rem;
 }
+
+@media (max-width: 400px) {
+  .header {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

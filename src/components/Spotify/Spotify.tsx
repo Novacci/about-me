@@ -124,7 +124,9 @@ function Spotify() {
         }
       >
         {loadingTrack ? (
-          <SpotifySpinner />
+          <div className={styles['spinner-position']}>
+            <SpotifySpinner />
+          </div>
         ) : (
           <SpotifyContent
             isListening={isListening}

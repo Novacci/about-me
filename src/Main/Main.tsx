@@ -7,13 +7,14 @@ import Contact from '../components/Contact/Contact';
 import MySocials from '../components/MySocials/MySocials';
 import Resume from '../components/Resume/Resume';
 import Spotify from '../components/Spotify/Spotify';
+import SpotifyContent from '../components/SpotifyContent/SpotifyContent';
 
 const Main = () => {
   return (
     <>
       <div className={styles['flex-position']}>
         <AboutMe />
-        <Spotify />
+        <SpotifyContent />
         <Map />
         <Github />
         <Info />

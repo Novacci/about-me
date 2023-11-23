@@ -6,8 +6,8 @@ import Info from '../components/Info/Info';
 import Contact from '../components/Contact/Contact';
 import MySocials from '../components/MySocials/MySocials';
 import Resume from '../components/Resume/Resume';
-import Spotify from '../components/Spotify/Spotify';
-import SpotifyContent from '../components/SpotifyContent/SpotifyContent';
+import Spotify from '../components/SpotifyContent/SpotifyContent';
+import SpotifyContent from '../components/Spotify/Spotify';
 
 const Main = () => {
   return (
